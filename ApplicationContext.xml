@@ -1,0 +1,48 @@
+<!-- Spring-Common.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <import resource="*/Spring-Module.xml" />
+    <bean id="student" class="com.atmoon.spring.base.beans.Student">
+        <property name="name" value="JHT"></property>
+        <property name="age" value="21"></property>
+    </bean>
+
+    <!--spring支持5种自动装配bean的模式-->
+    <!--1:no – 缺省情况下，自动配置是通过“ref”属性手动设定(必须要有默认构造函数)-->
+    <bean id="teacher" class="com.atmoon.spring.base.beans.Teacher">
+        <property name="student" ref="student"></property>
+    </bean>
+    <!--2:byName – 根据属性名称自动装配。如果一个bean的名称
+    和其他bean属性的名称是一样的，将会自装配它。-->
+    <!--<bean id="teacher" class="com.atmoon.spring.base.beans.Teacher" autowire="byName"></bean>-->
+
+    <!--3:byType – 按数据类型自动装配。如果一个bean的数据类型是用其它bean属性的数据类型，兼容并自动装配它。-->
+    <!--<bean id="teacher" class="com.atmoon.spring.base.beans.Teacher" autowire="byType"></bean>-->
+
+    <!--4:constructor – 在构造函数参数的byType方式。-->
+    <!--<bean id="teacher" class="com.atmoon.spring.base.beans.Teacher" autowire="constructor"></bean>-->
+
+    <!--5:autodetect – 如果找到默认的构造函数，使用“自动装配用构造”; 否则，使用“按类型自动装配”。
+    (spring3.0以及以上无此方法,spring2.5可用)-->
+    <!--<bean id="teacher" class="com.atmoon.spring.base.beans.Teacher" autowire="autodetect" ></bean>-->
+
+    <!--@Autowired注解是通过匹配数据类型自动装配Bean,需要引用AutowiredAnnotationBeanPostProcessor-->
+    <!--<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+    <bean id="teacher" class="com.atmoon.spring.base.beans.Teacher"></bean>-->
+
+    <!--当有两个类型一样的bean:不能使用@Autowired注解,需要使用@Qualifie注解,否则装配失败-->
+    <!--<bean id="studentA" class="com.atmoon.spring.base.beans.Student">
+        <property name="name" value="studentA"></property>
+        <property name="age" value="21"></property>
+    </bean>
+
+    <bean id="studentB" class="com.atmoon.spring.base.beans.Student">
+        <property name="name" value="studentB"></property>
+        <property name="age" value="21"></property>
+    </bean>
+    <bean id="teacher" class="com.atmoon.spring.base.beans.Teacher"></bean>-->
+
+</beans>
