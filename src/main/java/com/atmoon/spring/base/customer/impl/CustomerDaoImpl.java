@@ -2,8 +2,6 @@ package com.atmoon.spring.base.customer.impl;
 
 import com.atmoon.spring.base.customer.dao.CustomerDao;
 import com.atmoon.spring.base.customer.model.Customer;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
