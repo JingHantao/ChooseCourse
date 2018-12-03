@@ -8,6 +8,9 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BaseTest {
 
     @Test
@@ -32,6 +35,53 @@ public class BaseTest {
 
         Customer customer1 = customerDao.findCustomerById(001);
         System.out.println(customer1);
+    }
+
+    @Test
+    public void customerJdbcTest(){
+        ApplicationContext applicationContext = new FileSystemXmlApplicationContext("Applicationcontext.xml");
+        Customer customer = new Customer(10004,"Spring",18);
+        CustomerDao customerDao = (CustomerDao) applicationContext.getBean("customerDao");
+        customerDao.insert(customer);
+        Customer customer1 = customerDao.findCustomerById(customer.getCustId());
+        System.out.println(customer1);
+    }
+    @Test
+    public void customersJdbcTest(){
+        ApplicationContext applicationContext = new FileSystemXmlApplicationContext("Applicationcontext.xml");
+        CustomerDao customerDao = (CustomerDao) applicationContext.getBean("customerDao");
+        List<Customer> customers = customerDao.findAll();
+        for (Customer customer:customers
+             ) {
+            System.out.println(customer);
+        }
+    }
+    @Test
+    public void findCustomerNameByIdTest(){
+        ApplicationContext applicationContext = new FileSystemXmlApplicationContext("Applicationcontext.xml");
+        CustomerDao customerDao = (CustomerDao) applicationContext.getBean("customerDao");
+        String name = customerDao.findCustomerNameById(10003);
+        System.out.println(name);
+    }
+    @Test
+    public void findTotalCustomerNumberTest(){
+        ApplicationContext applicationContext = new FileSystemXmlApplicationContext("Applicationcontext.xml");
+        CustomerDao customerDao = (CustomerDao) applicationContext.getBean("customerDao");
+        int total = customerDao.findTotalCustomerNumber();
+        System.out.println(total);
+    }
+    @Test
+    public void insertBatchTest(){
+        ApplicationContext applicationContext = new FileSystemXmlApplicationContext("Applicationcontext.xml");
+        CustomerDao customerDao = (CustomerDao) applicationContext.getBean("customerDao");
+        List<Customer> customers = new ArrayList<Customer>();
+        Customer customer1 = new Customer(10005,"SpringBoot",10);
+        Customer customer2 = new Customer(10006,"SpringBoot",10);
+        Customer customer3 = new Customer(10007,"SpringBoot",10);
+        customers.add(customer1);
+        customers.add(customer2);
+        customers.add(customer3);
+        customerDao.insertBatch(customers);
     }
 
 }

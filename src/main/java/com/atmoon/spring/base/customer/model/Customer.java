@@ -8,6 +8,9 @@ public class Customer {
 
     private int age;
 
+    public Customer() {
+    }
+
     /**
      *
      * @param custId

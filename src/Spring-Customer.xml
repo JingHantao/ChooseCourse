@@ -3,12 +3,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-    <!--引入另一个xml文件的bean-->
-    <import resource="Spring-Datasource.xml" />
-
-    <bean id="customerDAO" class="com.atmoon.spring.base.customer.impl.CustomerDaoImpl">
-        <property name="dataSource" ref="dataSource"></property>
-
+    <import resource="Spring-Datasource.xml"></import>
+    <!--<bean id="customerDao" class="com.atmoon.spring.customer.impl.CustomerDaoImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>-->
+    <!--using JdbcDaoSupport-->
+    <bean id="customerDao" class="com.atmoon.spring.base.customer.dao.JdbcCustomerDao">
+        <property name="dataSource" ref="dataSource" />
     </bean>
 
 </beans>

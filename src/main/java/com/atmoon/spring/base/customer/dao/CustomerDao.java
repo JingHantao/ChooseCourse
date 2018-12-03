@@ -2,6 +2,12 @@ package com.atmoon.spring.base.customer.dao;
 
 import com.atmoon.spring.base.customer.model.Customer;
 
+import java.util.List;
+
+/**
+ * CustomerDao与数据库交互
+ */
+
 public interface CustomerDao {
 
     /**
@@ -15,4 +21,12 @@ public interface CustomerDao {
      * @param custId
      */
     public Customer findCustomerById(int custId);
+
+    public List<Customer> findAll();
+
+    public String findCustomerNameById(int custId);
+
+    public int findTotalCustomerNumber();
+
+    public void insertBatch(final List<Customer> customers);
 }

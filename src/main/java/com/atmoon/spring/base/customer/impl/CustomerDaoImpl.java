@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class CustomerDaoImpl implements CustomerDao {
 
@@ -85,6 +86,26 @@ public class CustomerDaoImpl implements CustomerDao {
                 } catch (SQLException e) {}
             }
         }
+
+    }
+
+    @Override
+    public List<Customer> findAll() {
+        return null;
+    }
+
+    @Override
+    public String findCustomerNameById(int custId) {
+        return null;
+    }
+
+    @Override
+    public int findTotalCustomerNumber() {
+        return 0;
+    }
+
+    @Override
+    public void insertBatch(List<Customer> customers) {
 
     }
 }
