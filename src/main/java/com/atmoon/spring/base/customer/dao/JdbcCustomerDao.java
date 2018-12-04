@@ -63,19 +63,16 @@ public class JdbcCustomerDao extends JdbcDaoSupport implements CustomerDao {
     public List<Customer> findAll(){
 
         String sql = "SELECT * FROM CUSTOMER";
-
         List<Customer> customers  = getJdbcTemplate().query(sql,
                 new BeanPropertyRowMapper(Customer.class));
         return customers;
     }
-
     @Override
     public String findCustomerNameById(int custId) {
         String sql = "SELECT NAME FROM CUSTOMER WHERE CUST_ID = ?";
         String name = (String)getJdbcTemplate().queryForObject(sql,new Object[]{custId},String.class);
         return name;
     }
-
     @Override
     public int findTotalCustomerNumber() {
         //spring 3.2.2之后，jdbctemplate中的queryForInt已经被取消了,全部使用queryForObject.
@@ -88,9 +85,7 @@ public class JdbcCustomerDao extends JdbcDaoSupport implements CustomerDao {
     public void insertBatch(List<Customer> customers) {
         String sql = "INSERT INTO CUSTOMER " +
                 "(CUST_ID, NAME, AGE) VALUES (?, ?, ?)";
-
         getJdbcTemplate().batchUpdate(sql, new BatchPreparedStatementSetter() {
-
             @Override
             public void setValues(PreparedStatement ps, int i) throws SQLException {
                 Customer customer = customers.get(i);

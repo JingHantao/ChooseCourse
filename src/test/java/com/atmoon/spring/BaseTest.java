@@ -1,5 +1,7 @@
 package com.atmoon.spring;
 
+import com.atmoon.spring.base.DI.People;
+import com.atmoon.spring.base.DI.Tom;
 import com.atmoon.spring.base.beans.Student;
 import com.atmoon.spring.base.beans.Teacher;
 import com.atmoon.spring.base.customer.dao.CustomerDao;
@@ -88,7 +90,6 @@ public class BaseTest {
         customers.add(customer3);
         customerDao.insertBatch(customers);
     }
-
     @Test
     public void appConfigTest(){
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
@@ -102,6 +103,12 @@ public class BaseTest {
         CustomerB customerB = (CustomerB) applicationContext.getBean("customerBBean");
         customerA.print("i am customerA.");
         customerB.print("i am customerB.");
+    }
+    @Test
+    public void peopleDIBySetterOrConstructorTest(){
+        ApplicationContext applicationContext =new  FileSystemXmlApplicationContext("ApplicationContext.xml");
+        Tom tom = (Tom) applicationContext.getBean("tom");
+        tom.peopleSay();
     }
 
 }

@@ -4,6 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
+    <import resource="*/Spring-DI.xml"></import>
     <import resource="*/Spring-Module.xml" />
     <bean id="student" class="com.atmoon.spring.base.beans.Student">
         <property name="name" value="JHT"></property>

@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="peopleImpl" class="com.atmoon.spring.base.DI.PeopleImpl"></bean>
+    <!--DI:1.通过setter方法将peopleImpl注入到Tom的People中-->
+    <!--<bean id="tom" class="com.atmoon.spring.base.DI.Tom">
+        <property name="People" ref="peopleImpl" />
+    </bean>-->
+    <!--DI:2.通过constructor方法将peopleImpl注入到Tom的People中-->
+    <bean id="tom" class="com.atmoon.spring.base.DI.Tom">
+        <constructor-arg>
+            <ref bean="peopleImpl"></ref>
+        </constructor-arg>
+    </bean>
+</beans>
