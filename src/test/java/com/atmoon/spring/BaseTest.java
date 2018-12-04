@@ -4,8 +4,13 @@ import com.atmoon.spring.base.beans.Student;
 import com.atmoon.spring.base.beans.Teacher;
 import com.atmoon.spring.base.customer.dao.CustomerDao;
 import com.atmoon.spring.base.customer.model.Customer;
+import com.atmoon.spring.base.java_config.config.AppConfig;
+import com.atmoon.spring.base.java_config.core.CustomerA;
+import com.atmoon.spring.base.java_config.core.CustomerB;
+import com.atmoon.spring.base.java_config.hello.HelloWorld;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import java.util.ArrayList;
@@ -82,6 +87,21 @@ public class BaseTest {
         customers.add(customer2);
         customers.add(customer3);
         customerDao.insertBatch(customers);
+    }
+
+    @Test
+    public void appConfigTest(){
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        HelloWorld helloWorld = (HelloWorld) applicationContext.getBean("helloBean");
+        helloWorld.sayHello("Spring Java Config");
+    }
+    @Test
+    public void appConfigsTest(){
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        CustomerA customerA = (CustomerA) applicationContext.getBean("customerABean");
+        CustomerB customerB = (CustomerB) applicationContext.getBean("customerBBean");
+        customerA.print("i am customerA.");
+        customerB.print("i am customerB.");
     }
 
 }
