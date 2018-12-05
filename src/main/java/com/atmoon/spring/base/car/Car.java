@@ -8,23 +8,17 @@ public class Car {
 
     private String carColor;
 
-    public Car(String carNo, int carWeight, String carColor) {
+    public Car(String carNo, int carWeight, String carColor){
         this.carNo = carNo;
         this.carWeight = carWeight;
         this.carColor = carColor;
     }
 
-    /*public Car(String carNo,int carWeight,String carColor){
-        this.carNo = carNo;
+    public Car(int carWeight, String carNo, String carColor){
         this.carWeight = carWeight;
+        this.carNo = carNo;
         this.carColor = carColor;
     }
-
-    public Car(String carNo,String carColor,int carWeight){
-        this.carNo = carNo;
-        this.carColor = carColor;
-        this.carWeight = carWeight;
-    }*/
 
     @Override
     public String toString() {

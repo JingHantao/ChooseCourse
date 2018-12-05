@@ -4,6 +4,7 @@ import com.atmoon.spring.base.DI.People;
 import com.atmoon.spring.base.DI.Tom;
 import com.atmoon.spring.base.beans.Student;
 import com.atmoon.spring.base.beans.Teacher;
+import com.atmoon.spring.base.car.Car;
 import com.atmoon.spring.base.customer.dao.CustomerDao;
 import com.atmoon.spring.base.customer.model.Customer;
 import com.atmoon.spring.base.java_config.config.AppConfig;
@@ -109,6 +110,12 @@ public class BaseTest {
         ApplicationContext applicationContext =new  FileSystemXmlApplicationContext("ApplicationContext.xml");
         Tom tom = (Tom) applicationContext.getBean("tom");
         tom.peopleSay();
+    }
+    @Test
+    public void carTest(){
+        ApplicationContext applicationContext =new  FileSystemXmlApplicationContext("ApplicationContext.xml");
+        Car car = (Car) applicationContext.getBean("car");
+        System.out.println(car);
     }
 
 }

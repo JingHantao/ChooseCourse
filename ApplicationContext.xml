@@ -6,6 +6,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
     <import resource="*/Spring-DI.xml"></import>
     <import resource="*/Spring-Module.xml" />
+    <import resource="*/Spring-Car.xml"></import>
     <bean id="student" class="com.atmoon.spring.base.beans.Student">
         <property name="name" value="JHT"></property>
         <property name="age" value="21"></property>

@@ -5,8 +5,14 @@
 
 
     <bean id="car" class="com.atmoon.spring.base.car.Car">
-        <constructor-arg>
-            <value></value>
+        <constructor-arg type="java.lang.String">
+            <value>mk1897</value>
+        </constructor-arg>
+        <constructor-arg type="int">
+            <value>1000</value>
+        </constructor-arg>
+        <constructor-arg type="java.lang.String">
+            <value>white</value>
         </constructor-arg>
     </bean>
 
