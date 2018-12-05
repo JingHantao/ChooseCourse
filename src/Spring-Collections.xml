@@ -1,0 +1,55 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="courseBean" class="com.atmoon.spring.base.course.Course">
+        <property name="lists">
+            <list>
+                <value>1</value>
+                <ref bean="person"></ref>
+                <bean class="com.atmoon.spring.base.Person.Person">
+                    <property name="name" value="Spring(list)"></property>
+                    <property name="sex" value="Man(list)"></property>
+                </bean>
+            </list>
+        </property>
+
+        <property name="sets">
+            <set>
+                <value>1</value>
+                <ref bean="person"></ref>
+                <bean class="com.atmoon.spring.base.Person.Person">
+                    <property name="name" value="Spring(set)"></property>
+                    <property name="sex" value="Man(sey)"></property>
+                </bean>
+            </set>
+        </property>
+
+        <property name="maps">
+            <map>
+                <entry key="key-1" value="1"></entry>
+                <entry key="key-2" value-ref="person"></entry>
+                <entry key="key-3">
+                    <bean class="com.atmoon.spring.base.Person.Person">
+                        <property name="name" value="Spring(map)"></property>
+                        <property name="sex" value="Man(map)"></property>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="admin">admin@moon.com</prop>
+                <prop key="support">support@moon.com</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="person" class="com.atmoon.spring.base.Person.Person">
+        <property name="name" value="JHT"></property>
+        <property name="sex" value="Man"></property>
+    </bean>
+
+</beans>

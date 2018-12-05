@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class CustomerBConfig {
+
     @Bean(name = "customerBBean")
     public CustomerB customerB(){
         return new CustomerB();

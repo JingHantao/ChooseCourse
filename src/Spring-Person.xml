@@ -1,0 +1,27 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+    <!--在Spring中，有三种方式注入值到 bean 属性。-->
+    <!--1.正常方式:在一个“value”标签注入值，并附有“property”标签结束。-->
+    <!--<bean id="person" class="com.atmoon.spring.base.Person.Person">
+        <property name="name">
+            <value>Spring-1</value>
+        </property>
+        <property name="sex">
+            <value>Man</value>
+        </property>
+    </bean>-->
+
+    <!--2，快捷方式:注入值“value”属性。-->
+    <!--<bean id="person" class="com.atmoon.spring.base.Person.Person">
+        <property name="name" value="Spring-2"></property>
+        <property name="sex" value="Man"></property>
+    </bean>-->
+
+    <!--3:"p"模式:通过使用“p”模式作为注入值到一个属性。-->
+    <!--<bean id="person" class="com.atmoon.spring.base.Person.Person"
+        p:name="Spring-3" p:sex="Man"
+    ></bean>-->
+</beans>

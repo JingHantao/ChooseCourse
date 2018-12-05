@@ -2,9 +2,11 @@ package com.atmoon.spring;
 
 import com.atmoon.spring.base.DI.People;
 import com.atmoon.spring.base.DI.Tom;
+import com.atmoon.spring.base.Person.Person;
 import com.atmoon.spring.base.beans.Student;
 import com.atmoon.spring.base.beans.Teacher;
 import com.atmoon.spring.base.car.Car;
+import com.atmoon.spring.base.course.Course;
 import com.atmoon.spring.base.customer.dao.CustomerDao;
 import com.atmoon.spring.base.customer.model.Customer;
 import com.atmoon.spring.base.java_config.config.AppConfig;
@@ -14,6 +16,7 @@ import com.atmoon.spring.base.java_config.hello.HelloWorld;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import java.util.ArrayList;
@@ -50,7 +53,7 @@ public class BaseTest {
         ApplicationContext applicationContext = new FileSystemXmlApplicationContext("Applicationcontext.xml");
         Customer customer = new Customer(10004,"Spring",18);
         CustomerDao customerDao = (CustomerDao) applicationContext.getBean("customerDao");
-        customerDao.insert(customer);
+        //customerDao.insert(customer);
         Customer customer1 = customerDao.findCustomerById(customer.getCustId());
         System.out.println(customer1);
     }
@@ -116,6 +119,18 @@ public class BaseTest {
         ApplicationContext applicationContext =new  FileSystemXmlApplicationContext("ApplicationContext.xml");
         Car car = (Car) applicationContext.getBean("car");
         System.out.println(car);
+    }
+    @Test
+    public void personTest(){
+        ApplicationContext applicationContext = new FileSystemXmlApplicationContext("ApplicationContext.xml");
+        Person person = (Person) applicationContext.getBean("person");
+        System.out.println(person);
+    }
+    @Test
+    public void collectionTest(){
+        ApplicationContext applicationContext = new FileSystemXmlApplicationContext("ApplicationContext.xml");
+        Course course = (Course) applicationContext.getBean("courseBean");
+        System.out.println(course);
     }
 
 }

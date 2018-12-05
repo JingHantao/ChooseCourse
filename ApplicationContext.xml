@@ -4,6 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
+    <import resource="*/Spring-Collections.xml"></import>
+    <import resource="*/Spring-Person.xml"></import>
     <import resource="*/Spring-DI.xml"></import>
     <import resource="*/Spring-Module.xml" />
     <import resource="*/Spring-Car.xml"></import>
@@ -47,4 +49,13 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
     </bean>
     <bean id="teacher" class="com.atmoon.spring.base.beans.Teacher"></bean>-->
 
+    <!--spring内部bean-->
+    <!--bean id="teacher" class="com.atmoon.spring.base.beans.Teacher">
+        <property name="student" >
+            <bean class="com.atmoon.spring.base.beans.Student">
+                <property name="name" value="JHT"></property>
+                <property name="age" value="21"></property>
+            </bean>
+        </property>
+    </bean>-->
 </beans>
