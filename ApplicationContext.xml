@@ -4,6 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
+    <import resource="*/Spring-EL.xml"></import>
     <import resource="*/Spring-AOP-Advice.xml"></import>
     <import resource="*/Spring-Collections.xml"></import>
     <import resource="*/Spring-Person.xml"></import>

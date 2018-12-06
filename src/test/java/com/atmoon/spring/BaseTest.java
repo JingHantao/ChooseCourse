@@ -3,6 +3,7 @@ package com.atmoon.spring;
 import com.atmoon.spring.base.AOP.CustomerService;
 import com.atmoon.spring.base.DI.People;
 import com.atmoon.spring.base.DI.Tom;
+import com.atmoon.spring.base.EL.bean.Dog;
 import com.atmoon.spring.base.Person.Person;
 import com.atmoon.spring.base.beans.Student;
 import com.atmoon.spring.base.beans.Teacher;
@@ -147,6 +148,12 @@ public class BaseTest {
         }catch (Exception e){
             System.out.println(e);
         }
+    }
+    @Test
+    public void dogTest(){
+        ApplicationContext applicationContext = new FileSystemXmlApplicationContext("ApplicationContext.xml");
+        Dog dog = (Dog) applicationContext.getBean("dogBean");
+        System.out.println(dog);
     }
 
 }
