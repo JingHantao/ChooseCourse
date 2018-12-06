@@ -5,10 +5,10 @@ import org.springframework.stereotype.Component;
 
 @Component(value = "dogBean")
 public class Dog {
-    @Value("#{itemBean}")
+    @Value(value = "#{itemBean}")
     private Item item;
 
-    @Value("#{itemBean.name}")
+    @Value(value = "#{itemBean.name}")
     private String itemName;
 
     public Item getItem() {

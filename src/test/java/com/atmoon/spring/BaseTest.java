@@ -151,7 +151,13 @@ public class BaseTest {
     }
     @Test
     public void dogTest(){
-        ApplicationContext applicationContext = new FileSystemXmlApplicationContext("ApplicationContext.xml");
+        ApplicationContext applicationContext = new FileSystemXmlApplicationContext("Spring-EL.xml");
+        Dog dog = (Dog) applicationContext.getBean("dogBean");
+        System.out.println(dog);
+    }
+    @Test
+    public void dogByComponentTest(){
+        ApplicationContext applicationContext = new FileSystemXmlApplicationContext("Spring-Auto-Component.xml");
         Dog dog = (Dog) applicationContext.getBean("dogBean");
         System.out.println(dog);
     }
