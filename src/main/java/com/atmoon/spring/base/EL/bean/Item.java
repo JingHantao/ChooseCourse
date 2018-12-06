@@ -8,7 +8,7 @@ public class Item {
     @Value(value = "itemB-ByComponent")
     private String name;
 
-    @Value(value = "10-ByComponent")
+    @Value(value = "10")
     private int number;
 
     public String getName() {
