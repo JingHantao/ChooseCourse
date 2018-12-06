@@ -32,11 +32,13 @@ public class Teacher {
 
     /**
      * set方法中使用@Autowired
+     *
      * @param student
      */
-   // @Autowired
+    // @Autowired
     //@Qualifier("studentA")
     public void setStudent(Student student) {
+
         this.student = student;
     }
 

@@ -1,5 +1,6 @@
 package com.atmoon.spring;
 
+import com.atmoon.spring.base.AOP.CustomerService;
 import com.atmoon.spring.base.DI.People;
 import com.atmoon.spring.base.DI.Tom;
 import com.atmoon.spring.base.Person.Person;
@@ -131,6 +132,21 @@ public class BaseTest {
         ApplicationContext applicationContext = new FileSystemXmlApplicationContext("ApplicationContext.xml");
         Course course = (Course) applicationContext.getBean("courseBean");
         System.out.println(course);
+    }
+    @Test
+    public void aopTest(){
+        ApplicationContext applicationContext = new FileSystemXmlApplicationContext("ApplicationContext.xml");
+        CustomerService customerService = (CustomerService) applicationContext.getBean("customerServiceProxy");
+        System.out.println("---------------------------------");
+        customerService.printName();
+        System.out.println("---------------------------------");
+        customerService.printUrl();
+        System.out.println("---------------------------------");
+        try{
+            customerService.printThrowException();
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
 }
